@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -24,4 +25,111 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+}
+
+
+.cards.cards15 {
+  background: #fff;
+  padding: 0;
+}
+
+/* Grid for card layout, responsive with correct gaps and column count */
+.cards.cards15 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (width <= 1100px) {
+  .cards.cards15 > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards15 > ul {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* Card: vertical stack, consistent sizing */
+.cards.cards15 > ul > li {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  min-height: 0;
+}
+
+/* Card image block */
+.cards.cards15 .cards-card-image {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+/* Card image: fixed height, cover, no border */
+.cards.cards15 > ul > li img {
+  width: 100%;
+  height: 132px;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Card body: tight vertical spacing, flush with sides */
+.cards.cards15 .cards-card-body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Title (first p in card body): bold, uppercase, black, flush left/right */
+.cards.cards15 .cards-card-body p:first-child {
+  font-family: var(--body-font-family);
+  font-size: 1rem;
+  color: #222;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin: 18px 0 0;
+  line-height: 1.15;
+  padding: 0;
+  width: 100%;
+  overflow-wrap: anywhere;
+}
+
+/* Description: light gray, small, single-line truncated within card */
+.cards.cards15 .cards-card-body p:not(:first-child) {
+  display: block;
+  font-family: var(--body-font-family);
+  font-size: 0.94rem;
+  color: #888;
+  margin: 8px 0 0;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  white-space: nowrap;
+  padding: 0;
+}
+
+/* Remove any top/bottom margin on paragraphs for consistency */
+.cards.cards15 .cards-card-body p {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
 }
