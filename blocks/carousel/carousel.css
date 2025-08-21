@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -99,7 +100,6 @@
   z-index: 1;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .carousel .carousel-navigation-buttons button {
   position: relative;
   width: 44px;
@@ -149,5 +149,186 @@
 
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
     --slide-content-width: auto;
+  }
+}
+
+
+.carousel.carousel21 .carousel-slide .carousel-slide-content {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 48px;
+  width: auto;
+  max-width: unset;
+  min-width: 420px;
+  margin: 0;
+  border-radius: 16px;
+  box-shadow: 0 4px 32px 0 rgb(32 32 32 / 12%);
+  padding: 28px 48px 22px;
+  z-index: 2;
+  background: #fff;
+  color: #131313;
+  display: block;
+}
+
+/* Card content adjustments for a more compact card */
+.carousel.carousel21 .carousel-slide .carousel-slide-content h2 {
+  color: #131313;
+  font-family: var(--heading-font-family);
+  font-weight: 600;
+  font-size: 2em;
+  margin-bottom: 0.5em;
+  margin-top: 0;
+}
+
+.carousel.carousel21 .carousel-slide .carousel-slide-content p {
+  color: #131313;
+  margin-bottom: 1em;
+  margin-top: 0;
+}
+
+.carousel.carousel21 .carousel-slide .carousel-slide-content .button-container .button {
+  background: #ffe400;
+  color: #131313;
+  font-weight: 600;
+  border-radius: 3px;
+  font-size: 1em;
+  border: none;
+  padding: 0.6em 1.5em;
+  text-transform: uppercase;
+  box-shadow: none;
+  margin: 0;
+  transition: background 0.15s;
+  letter-spacing: 0.01em;
+}
+
+/* Indicators restored and positioned just below the card, left-aligned */
+.carousel.carousel21 .carousel-slide-indicators {
+  position: absolute;
+  left: 0;
+  margin-left: 64px;
+  margin-top: 0;
+  bottom: unset;
+  transform: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+  padding: 0;
+  background: none;
+  line-height: 0;
+  z-index: 2;
+  pointer-events: auto;
+
+  /* Position just below card */
+
+  /* Card top (40px) + card padding top (28px) + h2 (2em) + p (1em) + button (2.2em) + card padding bottom (22px) */
+  top: calc(40px + 28px + 2em + 1em + 2.2em + 22px + 12px);
+}
+
+.carousel.carousel21 .carousel-slide-indicator button {
+  background: #d4d4d4;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  border: none;
+  transition: background 0.2s;
+}
+
+.carousel.carousel21 .carousel-slide-indicator button:disabled {
+  background: #131313;
+  cursor: default;
+}
+
+.carousel.carousel21 .carousel-slide-indicator button:hover,
+.carousel.carousel21 .carousel-slide-indicator button:focus-visible {
+  background: #131313;
+}
+
+/* Navigation arrows remain as before */
+.carousel.carousel21 .carousel-navigation-buttons {
+  position: absolute;
+  bottom: 36px;
+  right: 48px;
+  left: unset;
+  top: unset;
+  transform: none;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 3;
+}
+
+.carousel.carousel21 .carousel-navigation-buttons button {
+  width: 38px;
+  height: 38px;
+  min-width: 32px;
+  min-height: 32px;
+  background: #fff;
+  border-radius: 50%;
+  border: 1.5px solid #dedede;
+  box-shadow: 0 2px 10px 0 rgb(32 32 32 / 10%);
+  position: relative;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.carousel.carousel21 .carousel-navigation-buttons button:hover,
+.carousel.carousel21 .carousel-navigation-buttons button:focus-visible {
+  background: #f5f5f5;
+  border-color: #b8b8b8;
+}
+
+.carousel.carousel21 .carousel-navigation-buttons button::after {
+  display: none;
+}
+
+.carousel.carousel21 .carousel-navigation-buttons button.slide-prev::before,
+.carousel.carousel21 .carousel-navigation-buttons button.slide-next::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 11px;
+  left: 13px;
+  width: 10px;
+  height: 10px;
+  border: solid #131313;
+  border-width: 0 3px 3px 0;
+  background: none;
+  box-shadow: none;
+}
+
+.carousel.carousel21 .carousel-navigation-buttons button.slide-prev::before {
+  transform: rotate(135deg);
+}
+
+.carousel.carousel21 .carousel-navigation-buttons button.slide-next::before {
+  transform: rotate(-45deg);
+  left: 12px;
+}
+
+@media (width <= 900px) {
+  .carousel.carousel21 .carousel-slide .carousel-slide-content {
+    left: 0;
+    right: 0;
+    top: 16px;
+    min-width: 0;
+    padding: 12px 5vw 14px;
+    border-radius: 8px;
+  }
+
+  .carousel.carousel21 .carousel-slide-indicators {
+    margin-left: 5vw;
+    top: calc(16px + 12px + 2em + 1em + 2.2em + 14px + 8px);
+    gap: 9px;
+  }
+
+  .carousel.carousel21 .carousel-navigation-buttons {
+    bottom: 12px;
+    right: 12px;
   }
 }
