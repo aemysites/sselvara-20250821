@@ -1,5 +1,5 @@
+/* stylelint-disable no-descending-specificity */
 
-/* header and nav layout */
 header .nav-wrapper {
   width: 100%;
   z-index: 2;
@@ -50,7 +50,6 @@ header nav a:any-link {
   color: currentcolor;
 }
 
-/* hamburger */
 header nav .nav-hamburger {
   grid-area: hamburger;
   height: 22px;
@@ -125,7 +124,6 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   }
 }
 
-/* brand */
 header .nav-brand {
   grid-area: brand;
   flex-basis: 128px;
@@ -141,7 +139,6 @@ header nav .nav-brand img {
   max-width: 128px;
 }
 
-/* sections */
 header nav .nav-sections {
   grid-area: sections;
   flex: 1 1 auto;
@@ -254,7 +251,216 @@ header nav .nav-sections ul>li>ul>li {
   }
 }
 
-/* tools */
 header nav .nav-tools {
   grid-area: tools;
+}
+
+.header-wrapper {
+  background: #222;
+  width: 100%;
+}
+
+.header-wrapper .nav-wrapper {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: #222;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 40%);
+  justify-content: center;
+  align-items: center;
+  min-height: 28px;
+  display: flex;
+}
+
+.header {
+  display: flex;
+  width: 100%;
+}
+
+.header nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  max-width: 1264px;
+  margin: 0 auto;
+  min-height: 28px;
+  background: #222;
+  gap: 0 16px;
+  padding: 0 32px;
+  box-sizing: border-box;
+}
+
+.header nav .nav-hamburger {
+  display: none;
+  visibility: hidden;
+}
+
+.header nav .nav-brand {
+  order: 1;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  margin-right: auto;
+  padding-right: 20px;
+}
+
+.header nav .nav-brand img {
+  height: 24px;
+  max-height: 24px;
+  object-fit: contain;
+  width: auto;
+  display: block;
+}
+
+/* Compact tool area styling */
+.header nav .nav-sections {
+  order: 2;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  margin-left: auto;
+  gap: 0;
+  padding: 0;
+  max-width: 320px;
+  overflow: visible;
+  background: transparent;
+  justify-content: flex-end;
+}
+
+/* Hide the navigation country/language lists */
+.header nav .nav-sections > .default-content-wrapper > ul,
+.header nav .nav-sections > .default-content-wrapper ul ul {
+  display: none;
+}
+
+/* Tool bar: show all <p>s as a flex row, including all links/spans/buttons */
+.header nav .nav-sections .default-content-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 12px;
+  min-width: 0;
+  padding: 0;
+  height: 28px;
+}
+
+/* All tool bar <p>s in a row, compact gap */
+.header nav .nav-sections .default-content-wrapper > p {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  height: 28px;
+  color: #e6e6e6;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* Hide empty <p> (if any) */
+.header nav .nav-sections .default-content-wrapper > p:empty {
+  display: none;
+}
+
+/* Tool links and buttons: consistent color, size, weight, case */
+.header nav .nav-sections a,
+.header nav .nav-sections .button,
+.header nav .nav-sections .button-container .button,
+.header nav .nav-sections .default-content-wrapper > p > a,
+.header nav .nav-sections .default-content-wrapper > p > span {
+  color: #e6e6e6;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  background: none;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0 5px;
+  line-height: 28px;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+/* Remove link underline on hover */
+.header nav .nav-sections a:hover,
+.header nav .nav-sections .button:hover,
+.header nav .nav-sections .button-container .button:hover {
+  text-decoration: none;
+  color: #e6e6e6;
+  background: none;
+}
+
+/* Language button container (flag) */
+.header nav .nav-sections .button-container {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  height: 28px;
+}
+
+/* Simulate flag: smaller, tightly aligned, vertical middle */
+.header nav .nav-sections .button-container::before {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 8px;
+  margin-right: 0;
+  width: 16px;
+  height: 11px;
+  background: linear-gradient(to bottom, #000 33%, #d00 33% 66%, #ffce00 66%);
+  border: 1px solid #444;
+  border-radius: 1px;
+  content: "";
+  align-self: center;
+  margin-top: 1px;
+}
+
+/* Hide all nav-tools if present, for strict minimal right-grouping */
+.header nav .nav-tools {
+  display: none;
+}
+
+/* Reduce overall header height for compact look */
+.header-wrapper,
+.header-wrapper .nav-wrapper,
+.header,
+.header nav {
+  min-height: 28px;
+  height: 28px;
+}
+
+/* Responsive: stack items vertically on small screens */
+@media (width <= 900px) {
+  .header-wrapper .nav-wrapper {
+    position: static;
+    min-height: 44px;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 20%);
+  }
+
+  .header nav {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 8px 0;
+    padding: 0 16px;
+    min-height: 44px;
+  }
+
+  .header nav .nav-brand,
+  .header nav .nav-sections,
+  .header nav .nav-tools {
+    margin-right: 0;
+    gap: 8px;
+  }
 }
