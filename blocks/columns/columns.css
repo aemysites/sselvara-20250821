@@ -31,3 +31,113 @@
     order: unset;
   }
 }
+
+
+.columns.columns19 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 0;
+  width: 100%;
+}
+
+@media (width <= 900px) {
+  .columns.columns19 > div {
+    flex-direction: column;
+  }
+
+  .columns.columns19 > div > div:not(.columns-img-col) {
+    padding: 0.75rem 1rem 1rem;
+  }
+}
+
+/* Left column (text panel) */
+.columns.columns19 > div > div:not(.columns-img-col) {
+  background: #f5f5f5;
+  padding: 0.4rem 1.8rem 0.7rem 2rem; /* minimal top/bottom, slightly less left/right */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 0 1 28%;
+  min-width: 0;
+  justify-content: flex-start;
+}
+
+/* Label */
+.columns.columns19 > div > div:not(.columns-img-col) > p:first-child {
+  font-size: 1rem;
+  color: #222;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+  letter-spacing: 0.02em;
+}
+
+/* Heading */
+.columns.columns19 > div > div:not(.columns-img-col) > h2 {
+  font-size: 2rem;
+  font-family: var(--heading-font-family);
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 0.4rem;
+  margin-top: 0;
+  line-height: 1.2;
+}
+
+/* Body text */
+.columns.columns19 > div > div:not(.columns-img-col) > p:not(:first-child, .button-container) {
+  font-size: 1rem;
+  color: #777;
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+  margin-top: 0;
+}
+
+/* Button container spacing */
+.columns.columns19 > div > div:not(.columns-img-col) > .button-container {
+  margin-top: 0.05rem;
+  margin-bottom: 0;
+}
+
+/* Button style override */
+.columns.columns19 .button-container .button {
+  background: #ffe600;
+  color: #000;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1rem;
+  padding: 0.75rem 2rem;
+  border-radius: 0;
+  border: none;
+  margin: 0;
+  box-shadow: none;
+  letter-spacing: 0.03em;
+  transition: background 0.2s;
+  display: inline-block;
+  text-align: left;
+}
+
+.columns.columns19 .button-container .button:hover,
+.columns.columns19 .button-container .button:focus {
+  background: #ffd600;
+}
+
+/* Right column (image) */
+.columns.columns19 > div > .columns-img-col {
+  flex: 1 1 72%;
+  min-width: 0;
+  height: auto;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
+}
+
+/* Ensure image fills area */
+.columns.columns19 .columns-img-col picture,
+.columns.columns19 .columns-img-col img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
