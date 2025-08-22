@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -44,4 +45,130 @@
   .hero {
     padding: 40px 32px;
   }
+}
+
+.hero.hero26 {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  min-height: 380px;
+  overflow: visible;
+}
+
+/* Image section: full width/height for hero block */
+.hero.hero26 > div:first-child {
+  width: 100%;
+  height: 380px;
+  position: relative;
+}
+
+.hero.hero26 picture,
+.hero.hero26 > div:first-child > div > picture,
+.hero.hero26 > div:first-child > div > img,
+.hero.hero26 img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Overlay card: raise further, reduce horizontal margins */
+.hero.hero26 > div:last-child {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 140px;
+  z-index: 2;
+  width: auto;
+  max-width: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Card: as tight as possible */
+.hero.hero26 > div:last-child > div {
+  background: #fff;
+  padding: 4px 18px;
+  border-radius: 0;
+  box-shadow: 0 8px 32px rgb(0 0 0 / 4%);
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Headline: minimal margin, prominent */
+.hero.hero26 h2 {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xl);
+  color: #222;
+  font-weight: 400;
+  margin: 0 0 1px;
+  line-height: 1.1;
+}
+
+/* Description: nearly no gap to next element */
+.hero.hero26 p {
+  font-family: var(--body-font-family);
+  color: #222;
+  font-size: var(--body-font-size-m);
+  margin: 0 0 1px;
+  line-height: 1.4;
+}
+
+/* Button container: absolutely no extra spacing */
+.hero.hero26 .button-container {
+  margin-top: 0;
+}
+
+/* Button: compact and left-aligned */
+.hero-container > .hero-wrapper > .block.hero.hero26 .button {
+  background: #ffe000;
+  color: #222;
+  font-family: var(--body-font-family);
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 0;
+  border: none;
+  font-size: 0.97em;
+  padding: 7px 18px;
+  margin: 0;
+  box-shadow: none;
+  letter-spacing: 0.03em;
+  display: inline-block;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+/* Responsive: maintain compactness on small screens */
+@media (width <= 900px) {
+  .hero.hero26 > div:last-child {
+    left: 4px;
+    right: 4px;
+    bottom: 14px;
+  }
+
+  .hero.hero26 > div:last-child > div {
+    padding: 2px 4px;
+  }
+
+  .hero.hero26 h2 {
+    font-size: var(--heading-font-size-l);
+  }
+
+  .hero.hero26 picture,
+  .hero.hero26 > div:first-child > div > picture,
+  .hero.hero26 > div:first-child > div > img,
+  .hero.hero26 img {
+    height: 150px;
+  }
+}
+
+/* Edge-to-edge hero block */
+.hero-container > .hero-wrapper {
+  max-width: unset;
+  padding: 0;
 }
