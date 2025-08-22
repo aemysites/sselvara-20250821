@@ -1,4 +1,3 @@
-/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -47,94 +46,108 @@
   }
 }
 
-.hero.hero26 {
-  position: relative;
-  width: 100%;
+.hero-container > .hero-wrapper {
+  max-width: unset;
   padding: 0;
-  margin: 0;
-  min-height: 380px;
-  overflow: visible;
 }
 
-/* Image section: full width/height for hero block */
-.hero.hero26 > div:first-child {
-  width: 100%;
-  height: 380px;
+
+.hero.hero26 {
   position: relative;
+  width: 100vw;
+  max-width: 100vw;
+  min-height: 430px;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  background: none;
+  display: block;
+}
+
+/* Ensure image is visible and fills the block */
+.hero.hero26 > div:first-child {
+  position: relative;
+  width: 100vw;
+  height: 430px;
+  min-height: 430px;
+  z-index: 1;
+  display: block;
 }
 
 .hero.hero26 picture,
-.hero.hero26 > div:first-child > div > picture,
-.hero.hero26 > div:first-child > div > img,
 .hero.hero26 img {
-  width: 100%;
-  height: 100%;
-  display: block;
+  width: 100vw;
+  height: 430px;
+  min-height: 430px;
   object-fit: cover;
+  display: block;
+  max-width: none;
+  max-height: none;
 }
 
-/* Overlay card: raise further, reduce horizontal margins */
+/* Overlay card: anchored left, correct vertical position and right gap */
 .hero.hero26 > div:last-child {
   position: absolute;
-  left: 16px;
-  right: 16px;
-  bottom: 140px;
+  left: 0;
+  bottom: 120px; /* Adjust for image below the card */
   z-index: 2;
-  width: auto;
-  max-width: none;
+  width: 100vw;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: flex-end;
+  pointer-events: none;
 }
 
-/* Card: as tight as possible */
+/* Card box: left-aligned, smaller width for bigger right margin */
 .hero.hero26 > div:last-child > div {
   background: #fff;
-  padding: 4px 18px;
-  border-radius: 0;
-  box-shadow: 0 8px 32px rgb(0 0 0 / 4%);
-  width: 100%;
+  padding: 32px 36px 24px;
   box-sizing: border-box;
+  border-radius: 0;
+  box-shadow: none;
+  width: 830px;
+  max-width: 68vw;
+  margin-left: 0;
+  margin-right: 0;
+  pointer-events: auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-/* Headline: minimal margin, prominent */
+/* Title and paragraph spacing */
 .hero.hero26 h2 {
   font-family: var(--heading-font-family);
   font-size: var(--heading-font-size-xl);
   color: #222;
-  font-weight: 400;
-  margin: 0 0 1px;
+  font-weight: 600;
+  margin: 0 0 16px;
   line-height: 1.1;
 }
 
-/* Description: nearly no gap to next element */
 .hero.hero26 p {
   font-family: var(--body-font-family);
   color: #222;
   font-size: var(--body-font-size-m);
-  margin: 0 0 1px;
+  margin: 0 0 24px;
   line-height: 1.4;
 }
 
-/* Button container: absolutely no extra spacing */
+/* Button container and button styles */
 .hero.hero26 .button-container {
-  margin-top: 0;
+  margin-top: 12px;
 }
 
-/* Button: compact and left-aligned */
 .hero-container > .hero-wrapper > .block.hero.hero26 .button {
-  background: #ffe000;
-  color: #222;
+  background: #ffe100;
+  color: #000;
   font-family: var(--body-font-family);
-  font-weight: bold;
+  font-weight: 600;
   text-transform: uppercase;
   border-radius: 0;
   border: none;
-  font-size: 0.97em;
-  padding: 7px 18px;
+  font-size: 1em;
+  padding: 10px 18px;
   margin: 0;
   box-shadow: none;
   letter-spacing: 0.03em;
@@ -143,32 +156,44 @@
   align-self: flex-start;
 }
 
-/* Responsive: maintain compactness on small screens */
+/* Responsive adjustments for mobile */
 @media (width <= 900px) {
+  .hero.hero26,
+  .hero.hero26 > div:first-child,
+  .hero.hero26 picture,
+  .hero.hero26 img {
+    width: 100vw;
+    height: 210px;
+    min-height: 210px;
+    max-width: none;
+    max-height: none;
+  }
+
   .hero.hero26 > div:last-child {
-    left: 4px;
-    right: 4px;
-    bottom: 14px;
+    width: 100vw;
+    left: 0;
+    right: auto;
+    bottom: 0;
+    padding: 0;
+    justify-content: flex-start;
+    align-items: flex-end;
   }
 
   .hero.hero26 > div:last-child > div {
-    padding: 2px 4px;
+    max-width: 98vw;
+    width: 98vw;
+    padding: 18px 8px 14px;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .hero.hero26 h2 {
     font-size: var(--heading-font-size-l);
+    margin-bottom: 10px;
   }
 
-  .hero.hero26 picture,
-  .hero.hero26 > div:first-child > div > picture,
-  .hero.hero26 > div:first-child > div > img,
-  .hero.hero26 img {
-    height: 150px;
+  .hero.hero26 p {
+    font-size: var(--body-font-size-s);
+    margin-bottom: 14px;
   }
-}
-
-/* Edge-to-edge hero block */
-.hero-container > .hero-wrapper {
-  max-width: unset;
-  padding: 0;
 }
