@@ -1,4 +1,3 @@
-/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -29,107 +28,113 @@
 
 
 .cards.cards15 {
+  width: 100%;
   background: #fff;
+  box-sizing: border-box;
   padding: 0;
 }
 
-/* Grid for card layout, responsive with correct gaps and column count */
+/* Grid: 4 columns, tight gap, fill available width */
 .cards.cards15 > ul {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  list-style: none;
   margin: 0;
   padding: 0;
-  list-style: none;
 }
 
-@media (width <= 1100px) {
+/* Responsive: 2 columns on tablets, 1 on mobile */
+@media (width <= 1024px) {
   .cards.cards15 > ul {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (width <= 600px) {
   .cards.cards15 > ul {
     grid-template-columns: 1fr;
-    gap: 16px;
   }
 }
 
-/* Card: vertical stack, consistent sizing */
+/* Each card stacks vertically, compact */
 .cards.cards15 > ul > li {
   display: flex;
   flex-direction: column;
   background: #fff;
   border: none;
-  margin: 0;
-  padding: 0;
+  box-shadow: none;
   min-width: 0;
-  min-height: 0;
+  padding: 0;
+  margin: 0;
+  align-items: stretch;
+  justify-content: flex-start;
 }
 
-/* Card image block */
+/* Card Image: slightly taller, square aspect, fills width */
 .cards.cards15 .cards-card-image {
   width: 100%;
-  margin: 0;
-  padding: 0;
   line-height: 0;
 }
 
-/* Card image: fixed height, cover, no border */
-.cards.cards15 > ul > li img {
-  width: 100%;
-  height: 132px;
-  object-fit: cover;
+.cards.cards15 .cards-card-image img {
   display: block;
-  border-radius: 0;
+  width: 100%;
+  height: 160px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border: none;
+  background: #fff;
   margin: 0;
   padding: 0;
 }
 
-/* Card body: tight vertical spacing, flush with sides */
+/* Card Body: very compact vertical layout, balanced bottom padding */
 .cards.cards15 .cards-card-body {
-  margin: 0;
-  padding: 0;
   width: 100%;
+  box-sizing: border-box;
+  padding: 12px 8px 16px;
+  margin: 0;
   display: flex;
   flex-direction: column;
+  gap: 1px;
+  flex: 1 1 auto;
   align-items: flex-start;
+  justify-content: flex-start;
 }
 
-/* Title (first p in card body): bold, uppercase, black, flush left/right */
+/* Title: uppercase, large, bold, tight layout */
 .cards.cards15 .cards-card-body p:first-child {
-  font-family: var(--body-font-family);
-  font-size: 1rem;
-  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+.cards.cards15 .cards-card-body p:first-child strong {
+  display: block;
+  font-size: 20px;
   font-weight: bold;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
-  margin: 18px 0 0;
-  line-height: 1.15;
+  color: #000;
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+  margin: 0;
   padding: 0;
-  width: 100%;
-  overflow-wrap: anywhere;
 }
 
-/* Description: light gray, small, single-line truncated within card */
+/* Subtitle/Description: slightly darker gray, maximum 2 lines, improved readability */
 .cards.cards15 .cards-card-body p:not(:first-child) {
-  display: block;
-  font-family: var(--body-font-family);
-  font-size: 0.94rem;
-  color: #888;
-  margin: 8px 0 0;
-  line-height: 1.4;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
-  white-space: nowrap;
+  margin: 0;
   padding: 0;
+  font-size: 15px;
+  color: #444;
+  line-height: 1.35;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: normal;
+  word-break: break-word; /* Fixed using valid alternative */
 }
 
-/* Remove any top/bottom margin on paragraphs for consistency */
-.cards.cards15 .cards-card-body p {
-  margin-top: 0;
-  margin-bottom: 0;
-  padding: 0;
-}
+/* Prevent cards from stretching vertically if content is short */
