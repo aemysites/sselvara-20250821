@@ -1,5 +1,4 @@
 /* stylelint-disable no-descending-specificity */
-
 header .nav-wrapper {
   width: 100%;
   z-index: 2;
@@ -278,6 +277,10 @@ header nav .nav-tools {
 .header {
   display: flex;
   width: 100%;
+  background: #232323;
+  min-height: 24px;
+  height: 24px;
+  box-sizing: border-box;
 }
 
 .header nav {
@@ -287,10 +290,10 @@ header nav .nav-tools {
   width: 100%;
   max-width: 1264px;
   margin: 0 auto;
-  min-height: 28px;
-  background: #222;
-  gap: 0 16px;
-  padding: 0 32px;
+  min-height: 24px;
+  background: #232323;
+  gap: 0 10px;
+  padding: 0 20px;
   box-sizing: border-box;
 }
 
@@ -305,18 +308,18 @@ header nav .nav-tools {
   align-items: center;
   min-width: 0;
   margin-right: auto;
-  padding-right: 20px;
+  padding-right: 16px;
+  height: 24px;
 }
 
 .header nav .nav-brand img {
-  height: 24px;
-  max-height: 24px;
+  height: 16px;
+  max-height: 16px;
   object-fit: contain;
   width: auto;
   display: block;
 }
 
-/* Compact tool area styling */
 .header nav .nav-sections {
   order: 2;
   display: flex;
@@ -329,47 +332,44 @@ header nav .nav-tools {
   overflow: visible;
   background: transparent;
   justify-content: flex-end;
+  height: 24px;
 }
 
-/* Hide the navigation country/language lists */
 .header nav .nav-sections > .default-content-wrapper > ul,
 .header nav .nav-sections > .default-content-wrapper ul ul {
   display: none;
 }
 
-/* Tool bar: show all <p>s as a flex row, including all links/spans/buttons */
 .header nav .nav-sections .default-content-wrapper {
   display: flex;
   align-items: center;
   flex-direction: row;
-  gap: 12px;
+  gap: 2px;
   min-width: 0;
   padding: 0;
-  height: 28px;
+  height: 24px;
 }
 
-/* All tool bar <p>s in a row, compact gap */
 .header nav .nav-sections .default-content-wrapper > p {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 12px;
+  gap: 2px;
   margin: 0;
   padding: 0;
-  height: 28px;
-  color: #e6e6e6;
+  height: 24px;
+  color: #ccc;
   font-size: 12px;
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: 0;
+  background: transparent;
 }
 
-/* Hide empty <p> (if any) */
 .header nav .nav-sections .default-content-wrapper > p:empty {
   display: none;
 }
 
-/* Tool links and buttons: consistent color, size, weight, case */
 .header nav .nav-sections a,
 .header nav .nav-sections .button,
 .header nav .nav-sections .button-container .button,
@@ -391,7 +391,6 @@ header nav .nav-tools {
   vertical-align: middle;
 }
 
-/* Remove link underline on hover */
 .header nav .nav-sections a:hover,
 .header nav .nav-sections .button:hover,
 .header nav .nav-sections .button-container .button:hover {
@@ -400,25 +399,23 @@ header nav .nav-tools {
   background: none;
 }
 
-/* Language button container (flag) */
 .header nav .nav-sections .button-container {
   display: flex;
   align-items: center;
   gap: 0;
   margin: 0;
   padding: 0;
-  height: 28px;
+  height: 24px;
 }
 
-/* Simulate flag: smaller, tightly aligned, vertical middle */
 .header nav .nav-sections .button-container::before {
   display: inline-block;
   vertical-align: middle;
-  margin-left: 8px;
-  margin-right: 0;
-  width: 16px;
-  height: 11px;
-  background: linear-gradient(to bottom, #000 33%, #d00 33% 66%, #ffce00 66%);
+  margin-left: 0;
+  margin-right: 2px;
+  width: 14px;
+  height: 9px;
+  background: linear-gradient(to bottom, #000 0 33%, #d00 33% 66%, #ffce00 66% 100%);
   border: 1px solid #444;
   border-radius: 1px;
   content: "";
@@ -426,12 +423,11 @@ header nav .nav-tools {
   margin-top: 1px;
 }
 
-/* Hide all nav-tools if present, for strict minimal right-grouping */
 .header nav .nav-tools {
   display: none;
+  order: 3;
 }
 
-/* Reduce overall header height for compact look */
 .header-wrapper,
 .header-wrapper .nav-wrapper,
 .header,
@@ -440,7 +436,6 @@ header nav .nav-tools {
   height: 28px;
 }
 
-/* Responsive: stack items vertically on small screens */
 @media (width <= 900px) {
   .header-wrapper .nav-wrapper {
     position: static;
@@ -462,5 +457,98 @@ header nav .nav-tools {
   .header nav .nav-tools {
     margin-right: 0;
     gap: 8px;
+  }
+}
+
+.header .header-wrapper {
+  width: 100%;
+  background: #232323;
+}
+
+.header .header-wrapper .nav-wrapper {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: #232323;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 15%);
+  justify-content: center;
+  align-items: center;
+  min-height: 24px;
+  display: flex;
+}
+
+/* Only hide WELCOME and SIGN OUT links */
+.header nav .nav-sections .default-content-wrapper > p > a[title="Welcome"],
+.header nav .nav-sections .default-content-wrapper > p > a[title="Sign Out"] {
+  display: none;
+}
+
+.header nav .nav-sections .default-content-wrapper > p > a,
+.header nav .nav-sections .button,
+.header nav .nav-sections .button-container .button {
+  color: #ccc;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0 2px;
+  line-height: 24px;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.header nav .nav-sections .button-container .button {
+  color: #ccc;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0 2px;
+  line-height: 24px;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 8px 5px;
+  padding-right: 12px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='8' height='5'><polygon points='0,0 8,0 4,5' fill='%23cccccc'/></svg>");
+}
+
+@media (width <= 900px) {
+  .header-wrapper .nav-wrapper {
+    position: static;
+    min-height: 44px;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 14%);
+  }
+
+  .header nav {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 8px 0;
+    padding: 0 16px;
+    min-height: 44px;
+  }
+
+  .header nav .nav-brand,
+  .header nav .nav-sections,
+  .header nav .nav-tools {
+    margin-right: 0;
+    gap: 8px;
+    height: 44px;
   }
 }
