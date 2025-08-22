@@ -54,8 +54,6 @@ footer .footer p {
 
 /* --- Group all .button-container elements into a flex row in right column --- */
 @media (width >= 701px) {
-.footer .default-content-wrapper {
-  }
 
   /* Use :has() if supported to target all .button-container after #follow-us */
   .footer .default-content-wrapper:has(#follow-us + .button-container) {
