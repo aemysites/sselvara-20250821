@@ -1,24 +1,7 @@
 /* stylelint-disable no-descending-specificity */
-footer {
-  font-size: var(--body-font-size-xs);
-  background: rgb(32 32 32) none repeat scroll 0% 0% / auto padding-box border-box;
-}
+/* stylelint-disable selector-pseudo-class-no-unknown */
 
-footer .footer>div {
-  margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
-}
-
-footer .footer p {
-  margin: 0;
-}
-
-@media (width>=900px) {
-  footer .footer>div {
-    padding: 40px 32px 24px;
-  }
-}
+/* ...existing styles... */
 
 .footer {
   background: #222221;
@@ -53,15 +36,13 @@ footer .footer p {
 }
 
 /* --- Group all .button-container elements into a flex row in right column --- */
-@media (width >= 701px) {
-
+@media (min-width: 701px) {
   /* Use :has() if supported to target all .button-container after #follow-us */
   .footer .default-content-wrapper:has(#follow-us + .button-container) {
     /* On most browsers, :has() is not supported yet, so use parent flex on grid-column 2 */
   }
 
   /* Fallback: on grid-column 2, group all button-containers as a flex row */
-
   .footer .default-content-wrapper #follow-us ~ .button-container,
   .footer .default-content-wrapper .button-container {
     display: inline-flex;
@@ -162,7 +143,7 @@ footer .footer p {
 }
 
 /* --- Responsive: stack columns on small screens, stack social buttons vertically again --- */
-@media (width <= 700px) {
+@media (max-width: 700px) {
   .footer .default-content-wrapper {
     grid-template-columns: 1fr;
   }
@@ -186,3 +167,6 @@ footer .footer p {
     min-width: 0;
   }
 }
+
+/* stylelint-enable selector-pseudo-class-no-unknown */
+/* stylelint-enable no-descending-specificity */
