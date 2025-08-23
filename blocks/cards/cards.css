@@ -134,7 +134,8 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   white-space: normal;
-  word-break: break-word; /* Fixed using valid alternative */
+  overflow-wrap: break-word;
+  word-break: break-all; /* optional fallback */
 }
 
 /* Prevent cards from stretching vertically if content is short */
