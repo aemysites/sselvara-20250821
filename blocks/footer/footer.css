@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 footer {
   font-size: var(--body-font-size-xs);
   background: rgb(32 32 32) none repeat scroll 0% 0% / auto padding-box border-box;
@@ -16,5 +17,222 @@ footer .footer p {
 @media (width>=900px) {
   footer .footer>div {
     padding: 40px 32px 24px;
+  }
+}
+
+.footer {
+  background: #222221;
+  color: #e0e0e0;
+  width: 100%;
+  padding: 40px 60px 30px;
+  box-sizing: border-box;
+}
+
+/* Layout: two main columns, no big vertical gaps, all top-aligned */
+.footer .default-content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 430px;
+  gap: 0 60px;
+  align-items: start;
+  width: 100%;
+
+  /* Remove any grid row/area assignment from previous attempts */
+}
+
+/* Responsive: Stack on small screens */
+@media (width <= 900px) {
+  .footer .default-content-wrapper {
+    display: block;
+    width: 100%;
+  }
+}
+
+/* --- Left column content: logo, copyright, description, credits --- */
+.footer .default-content-wrapper > p:first-child,
+.footer .default-content-wrapper > p:nth-child(2),
+.footer .default-content-wrapper > p:nth-last-child(2),
+.footer .default-content-wrapper > p:last-child {
+  grid-column: 1;
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: #e0e0e0;
+  max-width: 600px;
+}
+
+.footer .default-content-wrapper > p:first-child { margin-bottom: 16px; }
+
+.footer .default-content-wrapper picture img {
+  display: block;
+  width: 130px;
+  height: auto;
+}
+
+.footer .default-content-wrapper > p:nth-child(2) { font-size: 1rem; }
+
+.footer .default-content-wrapper > p:nth-last-child(2), 
+.footer .default-content-wrapper > p:last-child {
+  font-size: 0.97rem;
+  margin-bottom: 0;
+  margin-top: 18px;
+}
+
+/* --- Description: always left column, tight below copyright --- */
+.footer .default-content-wrapper > p:nth-child(7) {
+  grid-column: 1;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #e0e0e0;
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 600px;
+}
+
+/* --- Right column: nav, "follow us", social icons --- */
+
+/* Nav row: tight, right-aligned */
+.footer .default-content-wrapper ul {
+  grid-column: 2;
+  display: flex;
+  flex-direction: row;
+  gap: 28px;
+  list-style: none;
+  margin: 0 0 10px;
+  padding: 0;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.footer .default-content-wrapper ul li a {
+  color: #e0e0e0;
+  font-size: 1rem;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  transition: color 0.2s;
+}
+
+.footer .default-content-wrapper ul li a:hover {
+  text-decoration: underline;
+  color: #f5f5f5;
+}
+
+/* "FOLLOW US" label: right-aligned, tight above icons */
+.footer .default-content-wrapper > h4 {
+  grid-column: 2;
+  margin: 0 0 12px;
+  color: #f5f5f5;
+  font-size: 1rem;
+  font-family: var(--body-font-family);
+  font-weight: bold;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  text-align: right;
+  line-height: 1.1;
+}
+
+/* Social icons: group all three .button-container in a flex row beneath h4 */
+.footer .default-content-wrapper > h4 + p.button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.footer .default-content-wrapper > h4 + p.button-container + p.button-container,
+.footer .default-content-wrapper > h4 + p.button-container + p.button-container + p.button-container {
+  display: contents;
+}
+
+/* Hide further margin for .button-container in this context */
+.footer .default-content-wrapper > p.button-container {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style social icon buttons */
+.footer .default-content-wrapper .button {
+  display: inline-block;
+  background: #f5f5f5;
+  color: #222221;
+  border: none;
+  border-radius: 4px;
+  padding: 0;
+  width: 44px;
+  height: 44px;
+  font-size: 0;
+  vertical-align: middle;
+  box-shadow: none;
+  transition: background 0.15s;
+  overflow: hidden;
+  position: relative;
+}
+.footer .default-content-wrapper .button:not(:last-child) { margin-right: 0; }
+
+.footer .default-content-wrapper .button::before {
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin: 10px;
+  content: "";
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 24px 24px;
+}
+
+.footer .default-content-wrapper .button[title*="Facebook"]::before {
+  background-image: url('https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/facebook.svg');
+  filter: invert(17%) sepia(9%) saturate(752%) hue-rotate(180deg) brightness(93%) contrast(91%);
+}
+
+.footer .default-content-wrapper .button[title*="Twitter"]::before {
+  background-image: url('https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/twitter.svg');
+  filter: invert(17%) sepia(9%) saturate(752%) hue-rotate(180deg) brightness(93%) contrast(91%);
+}
+
+.footer .default-content-wrapper .button[title*="Instagram"]::before {
+  background-image: url('https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/instagram.svg');
+  filter: invert(17%) sepia(9%) saturate(752%) hue-rotate(180deg) brightness(93%) contrast(91%);
+}
+
+.footer .default-content-wrapper .button:hover {
+  background: #e0e0e0;
+}
+
+/* Paragraph links: subtle gray */
+.footer .default-content-wrapper a {
+  color: #b0b0b0;
+  text-decoration: underline;
+}
+
+.footer .default-content-wrapper a:hover {
+  color: #f5f5f5;
+}
+
+/* Responsive nav/social stacking for mobile */
+@media (width <= 900px) {
+  .footer .default-content-wrapper ul {
+    flex-direction: column;
+    gap: 12px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+
+  .footer .default-content-wrapper > h4 {
+    text-align: left;
+    margin-bottom: 12px;
+  }
+
+  .footer .default-content-wrapper > h4 + p.button-container {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+
+  .footer .default-content-wrapper .button {
+    margin-bottom: 0;
   }
 }
